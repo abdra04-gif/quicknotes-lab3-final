@@ -1,5 +1,8 @@
 name: CI
 
+env:
+  GOFLAGS: "-buildvcs=false"   # оптимизация 1
+
 on:
   push:
     branches: [main]
@@ -64,11 +67,20 @@ jobs:
           go-version: '1.24'
           cache: true
           cache-dependency-path: app/go.sum
-      - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@82606bf257cbaff209d206a39f5134f0cfbfd2ee  # v9.2.1
+
+      # Оптимизация 2: кэшируем бинарник линтера
+      - name: Cache golangci-lint
+        uses: actions/cache@v3
         with:
-          version: v2.5.0
-          working-directory: app
+          path: ~/go/bin/golangci-lint
+          key: ${{ runner.os }}-golangci-lint-v2.5.0
+
+      # Оптимизация 3: устанавливаем через go install и запускаем
+      - name: Install and run golangci-lint
+        run: |
+          go install github.com/golangci/golangci-lint/cmd/golangci-lint@v2.5.0
+          golangci-lint run --timeout=5m
+        working-directory: app
 
   ci-ok:
     name: CI OK
