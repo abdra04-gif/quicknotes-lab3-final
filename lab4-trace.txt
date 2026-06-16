@@ -1,0 +1,49 @@
+21:02:32.365133 IP6 ::1.64244 > ::1.8080: Flags [S], seq 1621459525, win 65535, options [mss 16324,nop,wscale 6,nop,nop,TS val 1247424814 ecr 0,sackOK,eol], length 0
+`....,.@....................................`..E.........4....?........
+JZ1.........
+21:02:32.365207 IP6 ::1.8080 > ::1.64244: Flags [S.], seq 2306117584, ack 1621459526, win 65535, options [mss 16324,nop,wscale 6,nop,nop,TS val 3077927213 ecr 1247424814,sackOK,eol], length 0
+`....,.@.....................................t..`..F.....4....?........
+.uq-JZ1.....
+21:02:32.365226 IP6 ::1.64244 > ::1.8080: Flags [.], ack 1, win 6372, options [nop,nop,TS val 1247424814 ecr 3077927213], length 0
+`.... .@....................................`..F.t.......(.....
+JZ1..uq-
+21:02:32.365240 IP6 ::1.8080 > ::1.64244: Flags [.], ack 1, win 6372, options [nop,nop,TS val 3077927213 ecr 1247424814], length 0
+`.... .@.....................................t..`..F.....(.....
+.uq-JZ1.
+21:02:32.365257 IP6 ::1.64244 > ::1.8080: Flags [P.], seq 1:175, ack 1, win 6372, options [nop,nop,TS val 1247424814 ecr 3077927213], length 174: HTTP: POST /notes HTTP/1.1
+`......@....................................`..F.t.............
+JZ1..uq-POST /notes HTTP/1.1
+Host: localhost:8080
+User-Agent: curl/8.7.1
+Accept: */*
+Content-Type: application/json
+Content-Length: 39
+
+{"title":"trace me","body":"in flight"}
+21:02:32.365270 IP6 ::1.8080 > ::1.64244: Flags [.], ack 175, win 6370, options [nop,nop,TS val 3077927213 ecr 1247424814], length 0
+`.... .@.....................................t..`........(.....
+.uq-JZ1.
+21:02:32.366195 IP6 ::1.8080 > ::1.64244: Flags [P.], seq 1:204, ack 175, win 6370, options [nop,nop,TS val 3077927214 ecr 1247424814], length 203: HTTP: HTTP/1.1 201 Created
+`......@.....................................t..`..............
+.uq.JZ1.HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Tue, 16 Jun 2026 18:02:32 GMT
+Content-Length: 90
+
+{"id":6,"title":"trace me","body":"in flight","created_at":"2026-06-16T18:02:32.365618Z"}
+
+21:02:32.366222 IP6 ::1.64244 > ::1.8080: Flags [.], ack 204, win 6369, options [nop,nop,TS val 1247424815 ecr 3077927214], length 0
+`.... .@....................................`....t.......(.....
+JZ1/.uq.
+21:02:32.366303 IP6 ::1.64244 > ::1.8080: Flags [F.], seq 175, ack 204, win 6369, options [nop,nop,TS val 1247424815 ecr 3077927214], length 0
+`.... .@....................................`....t.......(.....
+JZ1/.uq.
+21:02:32.366327 IP6 ::1.8080 > ::1.64244: Flags [.], ack 176, win 6370, options [nop,nop,TS val 3077927214 ecr 1247424815], length 0
+`.... .@.....................................t..`........(.....
+.uq.JZ1/
+21:02:32.366364 IP6 ::1.8080 > ::1.64244: Flags [F.], seq 204, ack 176, win 6370, options [nop,nop,TS val 3077927214 ecr 1247424815], length 0
+`.... .@.....................................t..`........(.....
+.uq.JZ1/
+21:02:32.366392 IP6 ::1.64244 > ::1.8080: Flags [.], ack 205, win 6369, options [nop,nop,TS val 1247424815 ecr 3077927214], length 0
+`.... .@....................................`....t.......(.....
+JZ1/.uq.
